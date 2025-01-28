@@ -20,18 +20,16 @@
 }
 body{
     font-family: "Barlow Semi Condensed", serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 100vw;
-    min-height: 100%;
     background-color: var(--Light-grayish-blue);
 }
 
-main{
-    margin: clamp(1.5em , 5em, 7em) clamp(1.5em, 2em, 2.5em) ;
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: clamp(1.5em, 5em, 7em) clamp(1.5em, 2em, 2.5em);
 }
-
 
 /* -- section -- */ 
 
@@ -49,7 +47,8 @@ article h1 {
 
 
 .testimonial:nth-child(1){
-    background-color: var(--Moderate-violet);
+    background: var(--Moderate-violet) url(/testimonials-grid-section-main/images/bg-pattern-quotation.svg) no-repeat top right 1.5em / 6em;
+    object-fit: cover;
 }
 
 .testimonial:nth-child(2) {
@@ -136,45 +135,47 @@ line-height: 1.4;
 /* --break-point--*/
 
 @media (min-width: 768px) {
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    
     .testimonial-iems{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: auto auto;
         grid-template-areas: 
             "item-1 item-1 item-2 item-3"
             "item-5 item-4 item-4 item-3" 
         ;
-        gap: 2em;
-        height: 572px;
+        gap: 1.1em;
     }
 
     .testimonial:nth-child(1){
         grid-area: item-1;
-        max-width: 574.05px;
-        max-height: 282px;
+        min-height: 282px;
     }
 
     .testimonial:nth-child(2){
         grid-area: item-2;
-        max-width: 271.08px;
-        max-height: 266px ;
+        min-height: 266px ;
     }
 
     .testimonial:nth-child(5){
         grid-area: item-3;
-        max-width: 271.08px;
-        max-height: 572px;
+        min-height: 572px;
     }
 
     .testimonial:nth-child(4){
         grid-area: item-4;
-        max-width: 574.05px;
-        max-height: 282px;
+        min-height: 282px;
     }
 
     .testimonial:nth-child(3){
         grid-area: item-5;
-        max-width: 271.08px;
-        max-height: 266px;
+        min-height: 266px;
     }
 }
